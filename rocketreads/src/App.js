@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'; // Ensure this is the correct path
 import Dashboard from './components/Dashboard';
 import Compare from './components/Compare';
+import Timelines from './components/Timelines';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/compare" element={<Compare />} />
+            <Route path="/timelines" element={<Timelines />} />
           </Routes>
         </div>
       </div>

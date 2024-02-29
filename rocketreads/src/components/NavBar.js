@@ -12,6 +12,7 @@ function Navbar() {
         <ul className="navbar-nav">
             <li><NavLink to="/" activeClassName="active" >Dashboard</NavLink></li>
             <li><NavLink to="/compare" activeClassName="active">Compare</NavLink></li>
+            <li><NavLink to="/timelines" activeClassName="active">Timelines</NavLink></li>
         </ul>
         <p>SpaceXAPI</p>
     </nav>
