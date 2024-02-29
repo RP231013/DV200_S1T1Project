@@ -1,0 +1,38 @@
+.statBlockBody{
+    width: 17vw;
+    height: 40vh;
+    grid-column: span 1;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 5px 0px 10px rgba(0,0,0,0.1);
+}
+
+.statBlockBody h2{
+    margin-top: 60px;
+}
+
+.scoreContainer{
+    display: flow-root;
+    font-size: 25px;
+    margin-top: -40px;
+}
+
+.score{
+    margin: 0;
+    margin-top: -10px;
+    
+}
+
+#teller{
+    margin-left: -80px;
+}
+
+#slash{
+    margin-top: -40px;
+    margin-left: 20px;
+}
+
+#noemer{
+    margin-left: 30px;
+}
