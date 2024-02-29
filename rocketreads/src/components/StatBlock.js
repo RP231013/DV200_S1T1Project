@@ -1,5 +1,9 @@
-import React, { useRef } from 'react';
 import './Statblock.css';
+
+<div className="statBlockBody">
+
+</div>
+
 
 function StatBlock() {
     return (

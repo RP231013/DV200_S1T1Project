@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './Dashboard.css';
 import ChartBlock from './ChartBlock';
 import StatBlock from './StatBlock';
