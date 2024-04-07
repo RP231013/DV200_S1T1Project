@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar'; // Ensure this is the correct path
+import NavBar from './components/NavBar';
 import Dashboard from './components/Dashboard';
 import Compare from './components/Compare';
 import Timelines from './components/Timelines';

@@ -10,9 +10,9 @@ function Navbar() {
         <img src={Logo} alt="Logo" />
         <h1>Rocket Readouts</h1>
         <ul className="navbar-nav">
-            <li><NavLink to="/" activeClassName="active" >Dashboard</NavLink></li>
-            <li><NavLink to="/compare" activeClassName="active">Compare</NavLink></li>
-            <li><NavLink to="/timelines" activeClassName="active">Timelines</NavLink></li>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : undefined} >Dashboard</NavLink></li>
+            <li><NavLink to="/compare" className={({ isActive }) => isActive ? 'active' : undefined}>Compare</NavLink></li>
+            <li><NavLink to="/timelines" className={({ isActive }) => isActive ? 'active' : undefined}>Timelines</NavLink></li>
         </ul>
         <p>SpaceXAPI</p>
     </nav>
