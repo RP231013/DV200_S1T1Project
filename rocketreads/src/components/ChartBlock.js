@@ -1,48 +1,40 @@
 import React from 'react';
 import './ChartBlock.css';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import {
+  Bar,
+  Line,
+  Pie,
+  Doughnut,
+  Radar,
+  PolarArea,
+  Bubble,
+  Scatter,
+} from 'react-chartjs-2';
+import { Chart as ChartJS, registerables } from 'chart.js';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-function ChartBlock() {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Number of Items Sold',
-        data: [65, 59, 80, 81, 56, 55],
-        fill: false,
-        backgroundColor: 'rgba(241, 90, 36, 0.9)',
-        borderColor: 'rgba(241, 90, 36, 0.5)',
-      },
-    ],
-  };
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: false,
-        text: 'Chart.js Line Chart',
-      },
-    },
-  };
+ChartJS.register(...registerables);
+
+
+const CHART_COMPONENTS = {
+  bar: Bar,
+  line: Line,
+  pie: Pie,
+  doughnut: Doughnut,
+  radar: Radar,
+  polarArea: PolarArea,
+  bubble: Bubble,
+  scatter: Scatter,
+};
+
+function ChartBlock({ chartType, chartData, chartOptions, title }) {
+  
+  const ChartComponent = CHART_COMPONENTS[chartType] || Line;
 
   return (
     <div className='chartBlockBody'>
-      <h2>Chart Title</h2>
-      <Line data={data} options={options}/>
+      <h2>{title}</h2>
+      <ChartComponent data={chartData} options={chartOptions} />
     </div>
   );
 }

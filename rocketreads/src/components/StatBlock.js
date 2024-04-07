@@ -5,20 +5,17 @@ import './Statblock.css';
 </div>
 
 
-function StatBlock() {
+function StatBlock({ title, currentValue, maxValue }) {
     return (
         <div className="statBlockBody">
-            <h2>No. Rockets Active</h2>
-
+            <h2>{title}</h2>
             <div className='scoreContainer'>
-                <h1 id='teller' className='score'>90</h1>
-                <h1 id='slash' className='score'>/</h1>
-                <h1 id='noemer' className='score'>180</h1>
+                <h1 className='score'>{currentValue}</h1>
+                <h1 className='score'>/</h1>
+                <h1 className='score'>{maxValue}</h1>
             </div>
-
-            
         </div>
     );
-  }
+}
   
   export default StatBlock;
