@@ -5,7 +5,6 @@
     text-align: center;
     box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
     
-    
 }
 
 
@@ -14,4 +13,10 @@
     margin: 0;
     margin-top: 10px;
     padding-top: 5px;
+}
+
+#biggerChart{
+    grid-column: span 4;
+    width: 74vw;
+
 }

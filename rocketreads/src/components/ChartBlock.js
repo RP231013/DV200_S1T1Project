@@ -27,12 +27,12 @@ const CHART_COMPONENTS = {
   scatter: Scatter,
 };
 
-function ChartBlock({ chartType, chartData, chartOptions, title }) {
+function ChartBlock({ chartType, chartData, chartOptions, title, id }) {
   
   const ChartComponent = CHART_COMPONENTS[chartType] || Line;
 
   return (
-    <div className='chartBlockBody'>
+    <div className='chartBlockBody' id={id}>
       <h3 className='chartBlockHeader'>{title}</h3>
       <ChartComponent data={chartData} options={chartOptions} />
     </div>

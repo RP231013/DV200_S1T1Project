@@ -22,6 +22,6 @@
 }
 
 #longerDropdown{
-    grid-column: span 3 !important;
-    width: 500px !important;
+    grid-column: span 3 ;
+    width: 500px ;
 }

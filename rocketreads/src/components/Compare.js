@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Dropdown from './Dropdown';
 import RocketComparison from './RocketComparison';
 import LaunchComparison from './LaunchComparison';
+import './Compare.css';
 import axios from 'axios';
 
 const Compare = () => {
