@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+.dropBody{
+    width: 17vw;
+    height: 5vh;
+    grid-column: span 1;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border: none;
+}
+
+#objectType{
+    border: 3px solid rgba(241, 90, 36, 0.9);
+    font-weight: bold;
+}

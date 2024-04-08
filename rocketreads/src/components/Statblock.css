@@ -5,11 +5,14 @@
     display: grid;
     text-align: center;
     justify-content: center;
-    box-shadow: 5px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
+    
 }
 
 .statBlockBody h2{
     margin-top: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .scoreContainer{
@@ -26,6 +29,7 @@
 
 #teller{
     margin-left: -80px;
+    color: rgba(241, 90, 36, 0.9);
 }
 
 #slash{
