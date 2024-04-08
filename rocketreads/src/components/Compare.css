@@ -16,3 +16,47 @@
     margin-top: -20px;
     padding-top: 0;
 }
+
+.compareBtn{
+    width: 17vw;
+    height: 5vh;
+    padding-top: 13px;
+    grid-column: span 1;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border: none;
+}
+
+.compareBtn:hover{
+    background-color: rgba(241, 90, 36, 0.9);
+    color: #F8F8F8;
+}
+
+.compareBtn:disabled{
+    background-color: rgba(57, 57, 57, 0.2);
+}
+
+.compareSheet{
+    width: 37vw;
+    height: fit-content;
+    grid-column: span 2;
+    
+    text-align: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
+    
+}
+
+.compareSheet p {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 120px;
+}
