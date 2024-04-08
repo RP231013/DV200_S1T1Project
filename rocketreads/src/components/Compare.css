@@ -47,11 +47,13 @@
 .compareSheet{
     width: 37vw;
     height: fit-content;
-    grid-column: span 2;
+    grid-column: span 2; 
     
     text-align: center;
     justify-content: center;
     box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
+
+    padding-bottom: 30px;
     
 }
 
