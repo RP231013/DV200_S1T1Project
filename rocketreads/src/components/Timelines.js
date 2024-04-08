@@ -4,34 +4,36 @@ import ChartBlock from './ChartBlock';
 import axios from 'axios';
 import './Timelines.css';
 
-
+// my timelines component works by the user choosing a timeline via the dropdown
+// the value of the selcted dropdown element is then switched to check what data needs to be retrieved
+// data is then retrieved and processed for chart and displayed
 const Timelines = () => {
 
-
+  // using state variables to store/process data
   const [selectedTimeline, setSelectedTimeline] = useState('null');
   const [chartData, setChartData] = useState({});
 
-  // Function to fetch and prepare data for the chart based on the selected timeline
+  // fetch and prepare data for the chart based on the selected timeline via asynchronous function
   const fetchDataForTimeline = async (timeline) => {
     switch (timeline) {
       case 'launchesOverTime':
-        // Fetch data and prepare chartData for launches over time
+        // fetch data  for launches over time
         try {
           const response = await axios.get('https://api.spacexdata.com/v4/launches');
           const launches = response.data;
       
-          // Aggregate launches by year
+          // combine launches by year by using reduce and accumulator
           const launchesByYear = launches.reduce((acc, launch) => {
             const year = new Date(launch.date_utc).getFullYear();
             acc[year] = (acc[year] || 0) + 1;
             return acc;
           }, {});
       
-          // Prepare labels and data for the chart
+          // prepare labels and data for the chart (converts to chart.js required format)
           const years = Object.keys(launchesByYear).sort((a, b) => a - b);
           const launchCounts = years.map(year => launchesByYear[year]);
       
-          // Update chartData state
+          // update chartData state / store data
           setChartData({
             labels: years,
             datasets: [{
@@ -43,16 +45,17 @@ const Timelines = () => {
             }]
           });
         } catch (error) {
-          console.error('Error fetching launches data:', error);
+          console.error('err fetching launches data:', error);
           setChartData({});
         }
         break;
       case 'successVsFailedLaunches':
+        // fetch data for faiiled/successful launches over time
         try {
           const response = await axios.get('https://api.spacexdata.com/v4/launches');
           const launches = response.data;
       
-          // Aggregate successful and unsuccessful launches by year
+          // combine successful and unsuccessful launches by year
           const launchesByYear = launches.reduce((acc, launch) => {
             const year = new Date(launch.date_utc).getFullYear();
             if (!acc[year]) {
@@ -61,18 +64,17 @@ const Timelines = () => {
             if (launch.success) {
               acc[year].successful += 1;
             } else {
-              // Considering null (undetermined outcome) as unsuccessful for simplicity
               acc[year].unsuccessful += 1;
             }
             return acc;
           }, {});
       
-          // Prepare labels and data for the chart
+          // prepare labels and data for the chart
           const years = Object.keys(launchesByYear).sort((a, b) => a - b);
           const successCounts = years.map(year => launchesByYear[year].successful);
           const failureCounts = years.map(year => launchesByYear[year].unsuccessful);
       
-          // Update chartData state for two lines: Successful and Unsuccessful Launches
+          // update chartData state / store data
           setChartData({
             labels: years,
             datasets: [
@@ -98,22 +100,23 @@ const Timelines = () => {
         }
         break;
       case 'payloadTypesOverTime':
+        // fetch data for payload types over time
         try {
-          // First, fetch all payloads to categorize them by type.
+          // fetch payloads to categorize them by type
           const payloadsResponse = await axios.get('https://api.spacexdata.com/v4/payloads');
           const payloads = payloadsResponse.data;
           
-          // Categorize payloads by ID for easy lookup
+          // categorise payloads by ID for easy finding
           const payloadsById = payloads.reduce((acc, payload) => {
             acc[payload.id] = payload;
             return acc;
           }, {});
       
-          // Then, fetch all launches
+          // fetch all launches
           const launchesResponse = await axios.get('https://api.spacexdata.com/v4/launches');
           const launches = launchesResponse.data;
       
-          // Aggregate launches by payload type and year
+          // combine launches by payload type and year
           const launchesByPayloadTypeAndYear = launches.reduce((acc, launch) => {
             launch.payloads.forEach(payloadId => {
               const payload = payloadsById[payloadId];
@@ -127,17 +130,18 @@ const Timelines = () => {
             return acc;
           }, {});
       
-          // Prepare labels and data for the chart
+          // prepare labels and data for the chart
           const years = [...new Set(launches.map(launch => new Date(launch.date_utc).getFullYear()))].sort((a, b) => a - b);
           
-          // This part creates a dataset for each payload type
+          // create a dataset for each payload type
           const datasets = Object.keys(launchesByPayloadTypeAndYear).map(type => {
             const data = years.map(year => launchesByPayloadTypeAndYear[type][year] || 0);
             return {
               label: type,
               data: data,
               fill: false,
-              borderColor: `hsl(${Math.random() * 360}, 100%, 70%)`, // Random color for each type
+              // generates random colour
+              borderColor: `hsl(${Math.random() * 360}, 100%, 70%)`, 
               tension: 0.1
             };
           });
@@ -153,21 +157,21 @@ const Timelines = () => {
         break;
       case 'payloadMassOverTime':
         try {
-          // Fetch all payloads to get their mass
+          // fetch all payloads to get their mass
           const payloadsResponse = await axios.get('https://api.spacexdata.com/v4/payloads');
           const payloads = payloadsResponse.data;
           
-          // Create a mapping of payload ID to mass for quick lookup
+          // create map of payload ID to mass for quick lookup
           const payloadMassById = payloads.reduce((acc, payload) => {
-            acc[payload.id] = payload.mass_kg || 0; // Use 0 as a fallback if mass_kg is undefined
+            acc[payload.id] = payload.mass_kg || 0; // "|| 0" again used for error handling, if no value, default to 0
             return acc;
           }, {});
       
-          // Then, fetch all launches
+          // fetch all launches
           const launchesResponse = await axios.get('https://api.spacexdata.com/v4/launches');
           const launches = launchesResponse.data;
       
-          // Aggregate total payload mass by year
+          // combine total payload mass by year
           const totalMassByYear = launches.reduce((acc, launch) => {
             const year = new Date(launch.date_utc).getFullYear();
             const launchPayloadMass = launch.payloads.reduce((sum, payloadId) => sum + payloadMassById[payloadId], 0);
@@ -176,7 +180,7 @@ const Timelines = () => {
             return acc;
           }, {});
       
-          // Prepare labels and data for the chart
+          // prepare labels and data for the chart
           const years = Object.keys(totalMassByYear).sort((a, b) => a - b);
           const totalMasses = years.map(year => totalMassByYear[year]);
       
@@ -199,11 +203,11 @@ const Timelines = () => {
         break;
       case 'launchesPerPad':
         try {
-          // Fetch all launches
+          // get all launches
           const launchesResponse = await axios.get('https://api.spacexdata.com/v4/launches');
           const launches = launchesResponse.data;
       
-          // Fetch launchpad information to map IDs to names
+          // get launchpads to map IDs to names
           const launchpadsResponse = await axios.get('https://api.spacexdata.com/v4/launchpads');
           const launchpads = launchpadsResponse.data;
           const launchpadMap = launchpads.reduce((acc, pad) => {
@@ -211,7 +215,7 @@ const Timelines = () => {
             return acc;
           }, {});
       
-          // Aggregate launches by pad and year
+          // combine launches by pad and year
           const launchesByPadAndYear = launches.reduce((acc, launch) => {
             const year = new Date(launch.date_utc).getFullYear();
             const padName = launchpadMap[launch.launchpad] || 'Unknown';
@@ -223,7 +227,7 @@ const Timelines = () => {
             return acc;
           }, {});
       
-          // Prepare labels (years) and datasets for each launchpad
+          // prepare data for each launchpad
           const years = [...new Set(launches.map(launch => new Date(launch.date_utc).getFullYear()))].sort((a, b) => a - b);
           const datasets = Object.keys(launchesByPadAndYear).map(padName => {
             const data = years.map(year => launchesByPadAndYear[padName][year] || 0);
@@ -231,7 +235,8 @@ const Timelines = () => {
               label: padName,
               data: data,
               fill: false,
-              borderColor: `hsl(${Math.random() * 360}, 100%, 70%)`, // Random color for each pad
+              // generate random colours
+              borderColor: `hsl(${Math.random() * 360}, 100%, 70%)`, 
               tension: 0.1
             };
           });
@@ -250,12 +255,12 @@ const Timelines = () => {
     }
   };
 
-  // Effect to react to changes in selectedTimeline
+  // useEffect to react to changes in selectedTimeline - triggers data fetching etc.
   useEffect(() => {
     if (selectedTimeline !== 'null') {
       fetchDataForTimeline(selectedTimeline);
     }
-  }, [selectedTimeline]);
+  }, [selectedTimeline]); //dependant on selectedTimeLine state
   
   return <div>
     <div className="timelines-header">
@@ -276,10 +281,11 @@ const Timelines = () => {
             
           ]}
           selectedValue={selectedTimeline}
-          handleChange={(e) => setSelectedTimeline(e.target.value)} // Correctly matching the Dropdown prop
+          handleChange={(e) => setSelectedTimeline(e.target.value)} 
           id="longerDropdown"
         />
 
+        {/* conditionally render chartblock if timeline selected and data ready */}
         {selectedTimeline !== 'null' && chartData.labels && (
           <ChartBlock id='biggerChart' chartType="line" chartData={chartData} />
         )}

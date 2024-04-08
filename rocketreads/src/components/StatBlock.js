@@ -1,10 +1,6 @@
 import './Statblock.css';
-
-<div className="statBlockBody">
-
-</div>
-
-
+// simple statistic block for showing a fraction data
+// sticking with reusable component model, can be used anywhere, just pass props
 function StatBlock({ title, currentValue, maxValue }) {
     return (
         <div className="statBlockBody">

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ChartBlock from './ChartBlock';
 import axios from 'axios';
 
+// component for displaying details of a specific rocket
+// works in the same way as the LaunchComparison component 
 const RocketComparison = ({ rocketId }) => {
+  // state variables for storing and processing data
   const [rocketDetails, setRocketDetails] = useState(null);
   const [radarData, setRadarData] = useState({});
   const [barData, setBarData] = useState({});
@@ -15,9 +18,9 @@ const RocketComparison = ({ rocketId }) => {
           const details = response.data;
           setRocketDetails(details);
 
-          // Prepare radar chart data
+          // prepares radar chart data
           setRadarData({
-            labels: ['Height (m)', 'Diameter (m)', 'Mass (tonne)'],
+            labels: ['Height (m)', 'Diameter (m)', 'Mass (kilo-tonne)'],
             datasets: [{
               label: details.name,
               data: [details.height.meters, details.diameter.meters, details.mass.kg / 10000],
@@ -50,7 +53,7 @@ const RocketComparison = ({ rocketId }) => {
             }],
           });
 
-          // Prepare polar area chart data
+          // prepares polar area chart data
           const payloadWeights = details.payload_weights.map(p => p.kg);
           const payloadNames = details.payload_weights.map(p => p.name);
           setPolarData({
@@ -68,10 +71,11 @@ const RocketComparison = ({ rocketId }) => {
         })
         .catch(error => console.error('Fetching rocket details failed:', error));
     }
-  }, [rocketId]);
+  }, [rocketId]); //re-run if rocketID changes
 
   return (
     <div className="compareSheet">
+      {/* conditionally renders if charts available */}
       {rocketDetails && (
         <>
           <img src={rocketDetails.flickr_images[0]} alt={rocketDetails.name} style={{ width: '100%', height: '38vh' }} />

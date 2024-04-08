@@ -6,36 +6,39 @@ import './Compare.css';
 import axios from 'axios';
 
 const Compare = () => {
+  // I use state variables to store data for later use
   const [selectedType, setSelectedType] = useState('');
   const [objectOptions, setObjectOptions] = useState([]);
   const [selectedObject1, setSelectedObject1] = useState('');
   const [selectedObject2, setSelectedObject2] = useState('');
 
-
-
+  // hardcoded/predefined options for objects to be compared
   const objectTypes = [
     { value: 'null', label: 'Select Object' },
     { value: 'rockets', label: 'Rocket' },
     { value: 'launchpads', label: 'Launchpad' }
   ];
 
+  // fethces object data from API when selected item in dropdown changes
   useEffect(() => {
     if (selectedType) {
       axios.get(`https://api.spacexdata.com/v4/${selectedType}`)
         .then(response => {
           const options = response.data.map(item => ({
             value: item.id,
-            label: item.name || item.id
+            //uses name or id depending on availability
+            label: item.name || item.id 
           }));
           setObjectOptions(options);
         })
         .catch(error => {
-          console.error('Error fetching data:', error);
+          console.error('error fetching data:', error);
           setObjectOptions([]);
         });
     }
-  }, [selectedType]);
+  }, [selectedType]); // effect depends on selected type, so it is here
 
+  //eventhandler, handles changes to dropdown and resets selections
   const handleTypeChange = (e) => {
     setSelectedType(e.target.value);
     setSelectedObject1('');
@@ -44,7 +47,6 @@ const Compare = () => {
   };
 
   
-
   return (
     <div>
       <div className="compare-header">
@@ -58,11 +60,13 @@ const Compare = () => {
           selectedValue={selectedType}
           handleChange={handleTypeChange}
         />
+        {/* only renders following if value truthy - conditional rendering react */}
         {selectedType && <>
           <Dropdown 
             id="object1"
             options={objectOptions}
             selectedValue={selectedObject1}
+            // arro function for event, also updates electedObject state "saving" user selection
             handleChange={(e) => setSelectedObject1(e.target.value)}
           />
           <Dropdown 
@@ -73,7 +77,7 @@ const Compare = () => {
           />
         </>}
         
-
+        {/* basically means will only render if both dropdowns has value and type is rocket */}
         {selectedType && selectedObject1 && (
           selectedType === 'rockets' && <RocketComparison rocketId={selectedObject1} />
         )}
@@ -81,16 +85,13 @@ const Compare = () => {
           selectedType === 'rockets' && <RocketComparison rocketId={selectedObject2} />
         )}
         
-        
+        {/* basically means will only render if both dropdowns has value and type is launchpad */}
         {selectedObject1 && selectedType === 'launchpads' && (
           <LaunchComparison launchpadId={selectedObject1} />
         )}
         {selectedObject2 && selectedType === 'launchpads' && (
           <LaunchComparison launchpadId={selectedObject2} />
         )}
-          
-
-
 
       </div>
     </div>

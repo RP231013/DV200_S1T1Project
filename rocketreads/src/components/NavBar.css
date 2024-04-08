@@ -1,61 +1,61 @@
-/* Navbar.css */
+
 .navbar {
-    background-color: #F8F8F8;
-    overflow: hidden;
-    width: 20vw;
-    height: 100vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    color: #333333;
-    box-shadow: 5px 0 10px rgba(0,0,0,0.1);
-    margin-right: 27px;
-  }
-  
-  .navbar h1{
-    font-size: 4vh;
-    margin-top: 0;
-  }
+  background-color: #F8F8F8;
+  overflow: hidden;
+  width: 20vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  box-shadow: 5px 0 10px rgba(0,0,0,0.1);
+  margin-right: 27px;
+}
 
-  .navbar-nav {
-    margin-top: auto;
-    margin-bottom: 130px;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navbar-nav li {
-    padding-top: 3vh;
-    font-size: 2vw;
-    
-  }
-  
-  .navbar-nav li a {
-    display: block;
-    padding: 14px 20px;
-    text-decoration: none;
-    color: #333333;
-    font-weight: 100;
-  }
-  
-  .navbar-nav li a:hover {
-    background-color: rgba(241, 90, 36, 0.9);
-    color: #F8F8F8;
-  }
+.navbar h1{
+  font-size: 4vh;
+  margin-top: 0;
+}
 
-  .active{
-    border-right: 10px solid rgba(241, 90, 36, 0.9);
-    border-left: 10px solid rgba(241, 90, 36, 0.9);
-    font-weight: 400 !important;
-  }
+.navbar-nav {
+  margin-top: auto;
+  margin-bottom: 130px;
+  list-style-type: none;
+  padding: 0;
+}
 
-  .navbar p{
-    color: #333333;
-    margin-top: auto; /* Pushes the paragraph to the bottom */
-    padding-bottom: 10px;
-  }
+.navbar-nav li {
+  padding-top: 3vh;
+  font-size: 2vw;
+  
+}
 
-  .navbar img {
-    height: 120px;
-    margin-top: 30px;
-  }
+.navbar-nav li a {
+  display: block;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 100;
+}
+
+.navbar-nav li a:hover {
+  background-color: rgba(241, 90, 36, 0.9);
+  color: #F8F8F8;
+}
+
+.active{
+  border-right: 10px solid rgba(241, 90, 36, 0.9);
+  border-left: 10px solid rgba(241, 90, 36, 0.9);
+  font-weight: 400 !important;
+}
+
+.navbar p{
+  color: #333333;
+  margin-top: auto; 
+  padding-bottom: 10px;
+}
+
+.navbar img {
+  height: 120px;
+  margin-top: 30px;
+}
