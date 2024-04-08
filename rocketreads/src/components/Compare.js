@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from './Dropdown';
 import RocketComparison from './RocketComparison';
+import LaunchComparison from './LaunchComparison';
 import axios from 'axios';
 
 const Compare = () => {
@@ -14,9 +15,7 @@ const Compare = () => {
   const objectTypes = [
     { value: 'null', label: 'Select Object' },
     { value: 'rockets', label: 'Rocket' },
-    { value: 'launches', label: 'Launch' },
-    { value: 'launchpads', label: 'Launchpad' },
-    { value: 'dragons', label: 'Dragon' }
+    { value: 'launchpads', label: 'Launchpad' }
   ];
 
   useEffect(() => {
@@ -76,14 +75,18 @@ const Compare = () => {
 
         {selectedType && selectedObject1 && (
           selectedType === 'rockets' && <RocketComparison rocketId={selectedObject1} />
-          // Add similar lines for other types
         )}
         {selectedType && selectedObject2 && (
           selectedType === 'rockets' && <RocketComparison rocketId={selectedObject2} />
-          // Repeat for other types
         )}
         
-
+        
+        {selectedObject1 && selectedType === 'launchpads' && (
+          <LaunchComparison launchpadId={selectedObject1} />
+        )}
+        {selectedObject2 && selectedType === 'launchpads' && (
+          <LaunchComparison launchpadId={selectedObject2} />
+        )}
           
 
 

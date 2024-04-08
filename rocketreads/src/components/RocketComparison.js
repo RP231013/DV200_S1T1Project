@@ -20,7 +20,7 @@ const RocketComparison = ({ rocketId }) => {
             labels: ['Height (m)', 'Diameter (m)', 'Mass (tonne)'],
             datasets: [{
               label: details.name,
-              data: [details.height.meters, details.diameter.meters, details.mass.kg / 1000],
+              data: [details.height.meters, details.diameter.meters, details.mass.kg / 10000],
               backgroundColor: 'rgba(255, 99, 132, 0.5)',
               borderColor: 'rgba(255, 99, 132, 1)',
             }],
@@ -37,14 +37,14 @@ const RocketComparison = ({ rocketId }) => {
                 details.second_stage.thrust.kN,
               ],
               backgroundColor: [
-                'rgba(255, 159, 64, 0.5)',
-                'rgba(75, 192, 192, 0.5)',
-                'rgba(153, 102, 255, 0.5)',
+                'rgba(241, 90, 36, 0.9)',
+                'rgba(231, 100, 36, 0.7)',
+                'rgba(221, 70, 50, 0.8)',
               ],
               borderColor: [
-                'rgba(255, 159, 64, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
+                'rgba(241, 90, 36, 0.9)',
+                'rgba(231, 100, 36, 0.7)',
+                'rgba(221, 70, 50, 0.8)',
               ],
               borderWidth: 1,
             }],
@@ -62,7 +62,6 @@ const RocketComparison = ({ rocketId }) => {
                 'rgba(255, 99, 132, 0.5)',
                 'rgba(54, 162, 235, 0.5)',
                 'rgba(255, 206, 86, 0.5)',
-                // Add more colors as needed
               ],
             }],
           });
@@ -79,13 +78,13 @@ const RocketComparison = ({ rocketId }) => {
           <h2>{rocketDetails.name}</h2>
           <p>{rocketDetails.description}</p>
           {radarData.labels && (
-            <ChartBlock chartType="radar" chartData={radarData} />
+            <ChartBlock chartType="radar" chartData={radarData} title={"General Specifications"} />
           )}
           {barData.labels && (
-            <ChartBlock chartType="bar" chartData={barData} />
+            <ChartBlock chartType="bar" chartData={barData} title={"Thrust (kN)"}/>
           )}
           {polarData.labels && (
-            <ChartBlock chartType="polarArea" chartData={polarData} />
+            <ChartBlock chartType="polarArea" chartData={polarData} title={"Payload Types & Weights"}/>
           )}
         </>
       )}

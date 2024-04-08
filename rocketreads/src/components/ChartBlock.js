@@ -33,7 +33,7 @@ function ChartBlock({ chartType, chartData, chartOptions, title }) {
 
   return (
     <div className='chartBlockBody'>
-      <h2 className='chartBlockHeader'>{title}</h2>
+      <h3 className='chartBlockHeader'>{title}</h3>
       <ChartComponent data={chartData} options={chartOptions} />
     </div>
   );
