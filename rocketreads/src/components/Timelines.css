@@ -1,0 +1,19 @@
+.timelines-header {
+    font-size: 2.4vh;
+    margin-top: -15px;
+    width: 70vw;
+    margin-bottom: 0;
+}
+
+.timelines-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 30px;
+    column-gap: 0px;
+}
+
+.timelines-header p{
+    margin-top: -20px;
+    padding-top: 0;
+    
+}

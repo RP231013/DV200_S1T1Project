@@ -74,10 +74,10 @@ const LaunchComparison = ({ launchpadId }) => {
           <p style={{ height: 'fit-content' }}>{launchpadDetails.details}</p>
           <p><b>Location: {launchpadDetails.region} </b></p>
           {successFailureChartData.labels && (
-            <ChartBlock chartType="bar" chartData={successFailureChartData} />
+            <ChartBlock chartType="bar" chartData={successFailureChartData} title={"Launch Outcomes"} />
           )}
           {rocketDistributionChartData.labels && (
-            <ChartBlock chartType="pie" chartData={rocketDistributionChartData} />
+            <ChartBlock chartType="pie" chartData={rocketDistributionChartData} title={"Rocket Distributions"}/>
           )}
         </>
       )}

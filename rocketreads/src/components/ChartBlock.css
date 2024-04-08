@@ -1,6 +1,6 @@
 .chartBlockBody{
     width: 37vw;
-    height: 42vh;
+    height: fit-content;
     grid-column: span 2;
     text-align: center;
     box-shadow: 5px 5px 10px rgba(57, 57, 57, 0.2);
