@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Rocket Readouts - SpaceX API
+![Rocket Readouts Logo](/mockups/CoverImg.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Rocket Readouts - a React SPA that uses SpaceX API and Charts.js for data visualisation.
 
-## Available Scripts
+[→ Watch the demo video here ←]()
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Rocket Readouts is my first project of second year at Open Window DV200. Using React and Charts.js to make a SPA that visualises data from the SpaceX API. It has: a Dashboard (providing a summary of the data gained); a Compare page (that allows you to compare two objects - Rockets and Launchpads); and, lastly, a Timelines page visualising a number of data points over time.
+ 
 
-### `npm test`
+### Dashboard
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Dashboard Page](/mockups/dash.png)
 
-### `npm run build`
+### Compare - Rockets
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Compare Page](/mockups/compare1.png)
+![Compare Page](/mockups/compare2.png)
+![Compare Page](/mockups/compare3.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Compare - Launchpads
 
-### `npm run eject`
+![Compare Page](/mockups/compare4.png)
+![Compare Page](/mockups/compare5.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Timelines
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Timelines Page](/mockups/timelines1.png)
+![Timelines Page](/mockups/timelines2.png)
+![Timelines Page](/mockups/timelines3.png)
+![Timelines Page](/mockups/timelines4.png)
+![Timelines Page](/mockups/timelines5.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Built With
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [React](https://react.dev/)
+* [React-chartsjs-2](https://react-chartjs-2.js.org/)
+* [SpaceX API](https://github.com/r-spacex/SpaceX-API)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
+As this is merely a second-year project, any contributions/improvements would be highly appreciated and be helpful to my coding journey.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Authors
+[Rouxan Potgieter](https://github.com/RP231013)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
