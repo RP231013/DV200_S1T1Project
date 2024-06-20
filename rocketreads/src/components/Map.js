@@ -67,7 +67,7 @@ const Map = () => {
                             </Circle>
                             <Circle
                                 center={[launchpad.latitude, launchpad.longitude]}
-                                radius={unsuccessfulLaunches * 10000} // Adjust the multiplier as needed
+                                radius={unsuccessfulLaunches * 15000}
                                 color="red"
                                 fillColor="red"
                                 fillOpacity={0.4}
