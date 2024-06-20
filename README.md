@@ -1,5 +1,5 @@
 # Rocket Readouts - SpaceX API
-![Rocket Readouts Logo](/mockups/CoverImg.jpg)
+![Rocket Readouts Logo](/mockups/CoverImg2.jpg)
 
 Welcome to Rocket Readouts - a React SPA that uses SpaceX API and Charts.js for data visualisation.
 
