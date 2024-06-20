@@ -12,7 +12,7 @@ Welcome to Rocket Readouts - a React SPA that uses SpaceX API and Charts.js for 
 Rocket Readouts is my first project of second year at Open Window DV200. Using React and Charts.js to make a SPA that visualises data from the SpaceX API. It has: a Dashboard (providing a summary of the data gained); a Compare page (that allows you to compare two objects - Rockets and Launchpads); a Timelines page visualising a number of data points over time and, lastly, a map displaying successful and unsuccessful launches at various launchpad sites using Leaflet.
  
 ## Table of Contents
-
+- [Mockups](#mockups)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -20,6 +20,18 @@ Rocket Readouts is my first project of second year at Open Window DV200. Using R
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+
+## Mockups
+![Highlights](/mockups/mockMain.png)
+![Mockup](/mockups/mockup1.png)
+![Mockup](/mockups/mockup2.png)
+![Mockup](/mockups/mockup3.png)
+![Mockup](/mockups/mockup4.png)
+![Mockup](/mockups/mockup5.png)
+![Mockup](/mockups/mockup6.png)
+![Mockup](/mockups/mockup7.png)
+![Mockup](/mockups/mockup8.png)
+![Mockup](/mockups/mockup9.png)
 
 ## Features
 
