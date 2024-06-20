@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Dashboard from './components/Dashboard';
 import Compare from './components/Compare';
 import Timelines from './components/Timelines';
+import Map from './components/Map';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/timelines" element={<Timelines />} />
+            <Route path="/map" element={<Map />} />
           </Routes>
         </div>
       </div>

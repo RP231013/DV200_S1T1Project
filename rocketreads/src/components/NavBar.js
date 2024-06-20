@@ -14,6 +14,7 @@ function Navbar() {
             <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : undefined} >Dashboard</NavLink></li>
             <li><NavLink to="/compare" className={({ isActive }) => isActive ? 'active' : undefined}>Compare</NavLink></li>
             <li><NavLink to="/timelines" className={({ isActive }) => isActive ? 'active' : undefined}>Timelines</NavLink></li>
+            <li><NavLink to="/map" className={({ isActive }) => isActive ? 'active' : undefined}>Map</NavLink></li>
         </ul>
         <p>SpaceXAPI</p>
     </nav>
